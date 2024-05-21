@@ -6,6 +6,8 @@ namespace AleksandrIgnatov\SitemapGenerator\Dto;
 
 use AleksandrIgnatov\SitemapGenerator\Exception\ValidationException;
 use AleksandrIgnatov\SitemapGenerator\ValueObject\ChangeFreq;
+use DateTime;
+use Exception;
 
 class Page
 {
@@ -25,5 +27,11 @@ class Page
             throw new ValidationException("Priority must be between 0 and 1");
         if (!in_array($this->changefreq, array_column(ChangeFreq::cases(), 'value')))
             throw new ValidationException("Wrong changefreq");
+
+        try {
+            new DateTime($this->lastmod);
+        } catch (Exception $e) {
+            throw new ValidationException("Invalid date of last modification: $e");
+        }
     }
 }
