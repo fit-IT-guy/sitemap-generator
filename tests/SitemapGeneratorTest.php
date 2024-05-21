@@ -227,7 +227,7 @@ class SitemapGeneratorTest extends TestCase
     ];
     public function testGenerateSitemap()
     {
-        $dir = getcwd() . "/tests/generations/"; //"/Users/aleksandrignatov/Desktop/www/sitemap-generator/"
+        $dir = dirname(__DIR__) . "/tests/generations/"; //"/Users/aleksandrignatov/Desktop/www/sitemap-generator/"
         $generator1 = new SitemapGenerator(self::TEST_DATA, FileType::CSV, $dir);
         $generator2 = new SitemapGenerator(self::TEST_DATA, FileType::JSON, $dir);
         $generator3 = new SitemapGenerator(self::TEST_DATA, FileType::XML, $dir);
