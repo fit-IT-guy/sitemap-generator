@@ -3,6 +3,8 @@
 namespace AleksandrIgnatov\SitemapGenerator;
 
 use AleksandrIgnatov\SitemapGenerator\Exception\MkdirException;
+use AleksandrIgnatov\SitemapGenerator\Exception\ValidationException;
+use AleksandrIgnatov\SitemapGenerator\Exception\XmlBuildException;
 use AleksandrIgnatov\SitemapGenerator\Factory\GeneratorFactory;
 use AleksandrIgnatov\SitemapGenerator\ValueObject\FileType;
 
@@ -10,6 +12,8 @@ class SitemapGenerator
 {
     /**
      * @throws MkdirException
+     * @throws ValidationException
+     * @throws XmlBuildException
      */
     public function __construct(array $pages, FileType $type, string $resultFilePath)
     {
